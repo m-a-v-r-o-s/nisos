@@ -1,0 +1,125 @@
+// Shared database schema for both the public booking site and the CRM.
+//
+// DEMO: provider = "sqlite" (zero external setup).
+// PRODUCTION: change provider to "postgresql" and point DATABASE_URL at
+// Neon/Supabase. Money is stored as integer cents to avoid float errors.
+// Enum-like fields are plain strings because SQLite has no native enums;
+// allowed values live in ../src/constants.ts.
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model Group {
+  id          String    @id @default(cuid())
+  slug        String    @unique // a, b, c, atv, buggy, moto-50, moto-125, moto-325
+  name        String
+  kind        String // CAR | ATV | BUGGY | MOTO
+  tagline     String?
+  description String?
+  pricePerDay Int // cents, per day
+  deposit     Int       @default(0) // cents, security/booking deposit for this group
+  sortOrder   Int       @default(0)
+  heroImage   String?
+  vehicles    Vehicle[]
+  bookings    Booking[]
+
+  @@index([kind])
+}
+
+model Vehicle {
+  id           String        @id @default(cuid())
+  groupId      String
+  group        Group         @relation(fields: [groupId], references: [id], onDelete: Cascade)
+  name         String // e.g. "Kia Picanto", "Yamaha Aerox 50"
+  slug         String        @unique
+  image        String?
+  plate        String? // internal only, never shown publicly
+  seats        Int?
+  doors        Int?
+  transmission String? // manual | automatic | n/a
+  fuel         String? // petrol | diesel | electric | n/a
+  engineCc     Int? // for moto / atv / buggy
+  luggage      Int? // suitcases, cars only
+  color        String?
+  description  String?
+  active       Boolean       @default(true) // soft hide from public listings
+  sortOrder    Int           @default(0)
+  bookings     Booking[]
+  blockedDates BlockedDate[]
+  createdAt    DateTime      @default(now())
+
+  @@index([groupId])
+}
+
+model Customer {
+  id        String    @id @default(cuid())
+  firstName String
+  lastName  String
+  email     String
+  phone     String?
+  country   String?
+  notes     String?
+  bookings  Booking[]
+  createdAt DateTime  @default(now())
+
+  @@index([email])
+}
+
+model Booking {
+  id              String   @id @default(cuid())
+  reference       String   @unique // human-friendly, e.g. AEG-7F3K2
+  vehicleId       String
+  vehicle         Vehicle  @relation(fields: [vehicleId], references: [id])
+  groupId         String
+  group           Group    @relation(fields: [groupId], references: [id])
+  customerId      String
+  customer        Customer @relation(fields: [customerId], references: [id])
+
+  startDate       DateTime
+  endDate         DateTime
+  pickupLocation  String
+  dropoffLocation String
+  days            Int
+
+  pricePerDay     Int // snapshot, cents
+  addOns          String   @default("[]") // JSON: [{ key, label, price }]
+  addOnsTotal     Int      @default(0) // cents
+  total           Int // cents, full rental price
+  deposit         Int      @default(0) // cents
+
+  // payment
+  paymentMethod   String // stripe | cash
+  paymentOption   String // deposit | full | none(=cash on pickup)
+  amountPaid      Int      @default(0) // cents
+  paymentStatus   String   @default("pending") // pending | deposit_paid | paid | refunded
+  stripeSessionId String?
+
+  // lifecycle
+  status          String   @default("pending") // pending | confirmed | active | completed | cancelled
+  notes           String?
+
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+
+  @@index([vehicleId])
+  @@index([status])
+  @@index([startDate])
+}
+
+model BlockedDate {
+  id        String   @id @default(cuid())
+  vehicleId String
+  vehicle   Vehicle  @relation(fields: [vehicleId], references: [id], onDelete: Cascade)
+  startDate DateTime
+  endDate   DateTime
+  reason    String? // maintenance, service, etc.
+  createdAt DateTime @default(now())
+
+  @@index([vehicleId])
+}
