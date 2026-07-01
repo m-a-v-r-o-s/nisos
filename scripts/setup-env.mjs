@@ -28,7 +28,7 @@ const targets = [
   },
   {
     path: join(root, "apps", "admin", ".env.local"),
-    body: `DATABASE_URL="${url}"\nADMIN_PASSWORD="demo1234"\n`,
+    body: `DATABASE_URL="${url}"\nADMIN_PASSWORD="admin1234"\n`,
   },
 ];
 

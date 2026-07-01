@@ -21,7 +21,7 @@ npm run dev       # runs web (:3000) and admin (:3001) together
 Then open:
 
 - Public site → http://localhost:3000
-- CRM → http://localhost:3001 (demo password: **demo1234**)
+- CRM → http://localhost:3001 (demo password: **admin1234**)
 
 `npm run setup` runs these in order: `npm install` → `npm run env` → `db:generate` → `db:push` → `db:seed`.
 

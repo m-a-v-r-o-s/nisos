@@ -8,7 +8,7 @@ import { LanguageSwitcher } from "@/components/LanguageSwitcher";
 async function login(formData: FormData) {
   "use server";
   const password = String(formData.get("password") ?? "");
-  const expected = process.env.ADMIN_PASSWORD ?? "demo1234";
+  const expected = process.env.ADMIN_PASSWORD ?? "admin1234";
   if (password === expected) {
     cookies().set(ADMIN_COOKIE, ADMIN_COOKIE_VALUE, {
       httpOnly: true,
@@ -44,7 +44,7 @@ export default function LoginPage({
           )}
           <button className="btn-primary w-full">{t.login.signIn}</button>
           <p className="text-center text-xs text-slate-400">
-            {t.login.demoPassword} <code className="font-mono">demo1234</code>
+            {t.login.demoPassword} <code className="font-mono">admin1234</code>
           </p>
         </form>
         <div className="mt-5 flex justify-center">
