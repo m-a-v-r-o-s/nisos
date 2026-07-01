@@ -1,17 +1,16 @@
 // Shared database schema for both the public booking site and the CRM.
 //
-// DEMO: provider = "sqlite" (zero external setup).
-// PRODUCTION: change provider to "postgresql" and point DATABASE_URL at
-// Neon/Supabase. Money is stored as integer cents to avoid float errors.
-// Enum-like fields are plain strings because SQLite has no native enums;
-// allowed values live in ../src/constants.ts.
+// Uses PostgreSQL so both apps (web + admin) can share one managed database
+// on Railway / Neon / Supabase. Point DATABASE_URL at that Postgres.
+// Money is stored as integer cents to avoid float errors. Enum-like fields are
+// plain strings (allowed values live in ../src/constants.ts).
 
 generator client {
   provider = "prisma-client-js"
 }
 
 datasource db {
-  provider = "sqlite"
+  provider = "postgresql"
   url      = env("DATABASE_URL")
 }
 

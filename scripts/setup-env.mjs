@@ -1,13 +1,15 @@
-// Writes .env files with an ABSOLUTE SQLite path so both apps and the Prisma CLI
-// resolve to the same database file regardless of which directory they run from.
-// Existing files are left untouched (so your Stripe keys/edits survive re-runs).
+// Writes .env files pointing both apps and the Prisma CLI at the same Postgres.
+// Existing files are left untouched (so your DB URL / Stripe keys survive re-runs).
+// Override the default by setting DATABASE_URL before running `npm run env`.
 import { writeFileSync, existsSync, mkdirSync } from "node:fs";
 import { dirname, join, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), "..");
-const dbFile = join(root, "packages", "db", "prisma", "dev.db");
-const url = `file:${dbFile}`;
+// Local default assumes a Postgres on :5432 (e.g. the docker one-liner in README).
+const url =
+  process.env.DATABASE_URL ||
+  "postgresql://postgres:postgres@localhost:5432/rentals?schema=public";
 
 const targets = [
   {

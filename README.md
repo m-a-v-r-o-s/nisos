@@ -25,7 +25,10 @@ Then open:
 
 `npm run setup` runs these in order: `npm install` → `npm run env` → `db:generate` → `db:push` → `db:seed`.
 
-> **Note:** if you ran an earlier partial setup, delete `packages/db/prisma/dev.db` and the `.env` / `.env.local` files, then re-run `npm run setup` for a clean slate.
+> **Postgres required.** Both apps share one PostgreSQL database. Spin one up locally first, e.g.
+> `docker run -d -e POSTGRES_PASSWORD=postgres -e POSTGRES_DB=rentals -p 5432:5432 postgres:16-alpine`,
+> then run `npm run setup` (its default `DATABASE_URL` points at that container). To use a different
+> DB, set `DATABASE_URL` before `npm run setup`, or edit the generated `.env` / `.env.local` files.
 
 ---
 
@@ -63,23 +66,26 @@ The confirmation page also reconciles payment status on return from Checkout, so
 
 ---
 
-## Going to production (Postgres)
+## Deploying to Railway
 
-SQLite is used so the demo runs with zero setup. To switch to a hosted Postgres (Neon / Supabase):
+Both apps are separate services that **share one Postgres**, so a single managed DB is required.
 
-1. In `packages/db/prisma/schema.prisma`, change the datasource provider:
-   ```prisma
-   datasource db {
-     provider = "postgresql"   // was "sqlite"
-     url      = env("DATABASE_URL")
-   }
+1. **Add the database.** In your Railway project: **New → Database → PostgreSQL**.
+2. **Point both services at it.** On the **web** and **admin** services → **Variables**, add
+   `DATABASE_URL` = `${{Postgres.DATABASE_URL}}` (Railway variable reference). On **admin** also set
+   `ADMIN_PASSWORD`. The build already generates the Prisma client (root `postinstall`).
+3. **Create the tables + seed, once.** From your machine, grab the Postgres **public** URL (Postgres
+   service → **Connect → Public Network**) and run:
+   ```bash
+   DATABASE_URL="postgresql://…public-url…" npm run db:push
+   DATABASE_URL="postgresql://…public-url…" npm run db:seed
    ```
-2. Set `DATABASE_URL` to your Postgres connection string (in each app's env).
-3. `npm run db:generate && npm run db:push && npm run db:seed`.
+   (Or `railway run npm run db:push && railway run npm run db:seed` with the Railway CLI linked.)
+4. **Redeploy** both services. They now boot with a ready, shared database.
 
-No application code changes are needed - money is stored as integer cents and all queries go through Prisma.
-
-Also for production: replace the demo cookie auth in `apps/admin` (`middleware.ts` + `app/login`) with a real provider (NextAuth, Clerk, etc.), and lock down the `ADMIN_PASSWORD`.
+No app code changes are needed to move databases - money is stored as integer cents and all queries go
+through Prisma. For real production, also replace the demo cookie auth in `apps/admin`
+(`middleware.ts` + `app/login`) with a real provider (NextAuth, Clerk, etc.) and lock down `ADMIN_PASSWORD`.
 
 ---
 
