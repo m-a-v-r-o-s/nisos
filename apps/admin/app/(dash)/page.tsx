@@ -100,7 +100,8 @@ export default async function Dashboard() {
         {upcoming.length === 0 ? (
           <p className="px-5 py-8 text-center text-sm text-slate-400">{t.dashboard.nothingBooked}</p>
         ) : (
-          <table className="w-full">
+          <div className="overflow-x-auto">
+          <table className="w-full min-w-[640px]">
             <thead className="border-b border-slate-100">
               <tr>
                 <th className="th">{t.th.ref}</th><th className="th">{t.th.customer}</th>
@@ -123,6 +124,7 @@ export default async function Dashboard() {
               ))}
             </tbody>
           </table>
+          </div>
         )}
       </div>
     </div>
