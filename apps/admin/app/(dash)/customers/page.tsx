@@ -1,12 +1,36 @@
 import { prisma, formatMoney } from "@rentals/db";
 import { getDictionary } from "@/lib/i18n/server";
 import { format } from "@/lib/i18n/format";
+import { CustomerSearch } from "@/components/CustomerSearch";
 
 export const dynamic = "force-dynamic";
 
-export default async function CustomersPage() {
+export default async function CustomersPage({
+  searchParams,
+}: {
+  searchParams: { q?: string };
+}) {
   const t = getDictionary();
+  const q = (searchParams.q ?? "").trim();
+
+  // Match every whitespace-separated token against any of name / email / phone,
+  // so "maria" or "maria nikolaou" or a phone/email fragment all work.
+  const tokens = q.split(/\s+/).filter(Boolean);
+  const where = tokens.length
+    ? {
+        AND: tokens.map((tok) => ({
+          OR: [
+            { firstName: { contains: tok } },
+            { lastName: { contains: tok } },
+            { email: { contains: tok } },
+            { phone: { contains: tok } },
+          ],
+        })),
+      }
+    : {};
+
   const customers = await prisma.customer.findMany({
+    where,
     orderBy: { createdAt: "desc" },
     include: {
       bookings: {
@@ -21,6 +45,8 @@ export default async function CustomersPage() {
         <h1 className="font-display text-2xl font-bold text-ink">{t.customers.title}</h1>
         <p className="text-sm text-slate-500">{format(t.customers.total, { count: customers.length })}</p>
       </div>
+
+      <CustomerSearch initial={q} />
 
       <div className="card overflow-x-auto">
         <table className="w-full min-w-[640px]">
@@ -49,7 +75,7 @@ export default async function CustomersPage() {
               );
             })}
             {customers.length === 0 && (
-              <tr><td colSpan={5} className="px-5 py-10 text-center text-sm text-slate-400">{t.customers.noCustomers}</td></tr>
+              <tr><td colSpan={5} className="px-5 py-10 text-center text-sm text-slate-400">{q ? t.customers.noMatch : t.customers.noCustomers}</td></tr>
             )}
           </tbody>
         </table>

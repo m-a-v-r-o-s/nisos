@@ -36,6 +36,7 @@ export const pl: Dictionary = {
     fleet: "Flota",
     why: "Dlaczego Nisos",
     faq: "FAQ",
+    contact: "Kontakt",
   },
   footer: {
     explore: "Odkrywaj",
@@ -244,4 +245,25 @@ export const pl: Dictionary = {
     accept: "Akceptuję",
   },
   whatsapp: "Czat na WhatsApp",
+  contact: {
+    title: "Kontakt",
+    intro:
+      "Wynajem pojazdów w Kos Town - rezerwacje, zmiany i lokalne wsparcie od naszego zespołu.",
+    reachUs: "Jak się z nami skontaktować",
+    address: "Adres",
+    phone: "Telefon",
+    email: "Email",
+    hours: "Godziny otwarcia",
+    talkNow: "Porozmawiaj z nami teraz",
+    talkBody:
+      "Zadzwoń lub napisz krótką wiadomość na WhatsApp - zwykle odpowiadamy w kilka minut.",
+    call: "Zadzwoń do nas",
+    whatsappCta: "Napisz na WhatsApp",
+    aboutHeading: "O nas",
+    aboutBody:
+      "Nisos Rentals to lokalny zespół wynajmu w Kos Town, oferujący samochody, skutery, quady i buggy, byś mógł zwiedzać wyspę we własnym tempie. Łączymy zadbaną flotę z uczciwymi cenami i osobistym wsparciem od rezerwacji po zwrot.",
+    locationHeading: "Lokalizacja",
+    locationBody:
+      "Znajdziesz nas w naszym biurze w Kos Town, przy Akti Miaouli, z odbiorem także na lotnisku Kos i w porcie promowym. Chętnie dowieziemy pojazd do Twojego hotelu w dowolne miejsce na wyspie.",
+  },
 };

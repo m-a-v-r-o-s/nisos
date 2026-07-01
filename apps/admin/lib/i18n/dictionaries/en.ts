@@ -134,6 +134,8 @@ export const en = {
     title: "Customers",
     total: "{count} total",
     noCustomers: "No customers yet.",
+    searchPlaceholder: "Search by name, email or phone",
+    noMatch: "No customers match your search.",
   },
   fleet: {
     title: "Fleet",

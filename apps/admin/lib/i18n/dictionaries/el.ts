@@ -132,6 +132,8 @@ export const el: Dictionary = {
     title: "Πελάτες",
     total: "{count} συνολικά",
     noCustomers: "Κανένας πελάτης ακόμη.",
+    searchPlaceholder: "Αναζήτηση με όνομα, email ή τηλέφωνο",
+    noMatch: "Κανένας πελάτης δεν ταιριάζει με την αναζήτηση.",
   },
   fleet: {
     title: "Στόλος",

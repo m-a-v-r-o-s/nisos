@@ -6,6 +6,7 @@ import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { CookieBanner } from "@/components/CookieBanner";
 import { WhatsAppButton } from "@/components/WhatsAppButton";
+import { KeyboardAwareScroll } from "@/components/KeyboardAwareScroll";
 import { getDictionary, getLocale } from "@/lib/i18n/server";
 import { I18nProvider } from "@/lib/i18n/provider";
 
@@ -45,6 +46,7 @@ export default function RootLayout({
           <Footer />
           <CookieBanner />
           <WhatsAppButton />
+          <KeyboardAwareScroll />
         </I18nProvider>
       </body>
     </html>

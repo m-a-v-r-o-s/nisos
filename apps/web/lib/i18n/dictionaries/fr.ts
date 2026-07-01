@@ -36,6 +36,7 @@ export const fr: Dictionary = {
     fleet: "Flotte",
     why: "Pourquoi Nisos",
     faq: "FAQ",
+    contact: "Contact",
   },
   footer: {
     explore: "Explorer",
@@ -244,4 +245,25 @@ export const fr: Dictionary = {
     accept: "Accepter",
   },
   whatsapp: "Discuter sur WhatsApp",
+  contact: {
+    title: "Contact",
+    intro:
+      "Location de véhicules à Kos-Ville - réservations, modifications et assistance locale par notre équipe.",
+    reachUs: "Comment nous joindre",
+    address: "Adresse",
+    phone: "Téléphone",
+    email: "E-mail",
+    hours: "Horaires d’ouverture",
+    talkNow: "Parlez-nous maintenant",
+    talkBody:
+      "Appelez-nous ou envoyez un message rapide sur WhatsApp - nous répondons généralement en quelques minutes.",
+    call: "Appelez-nous",
+    whatsappCta: "Message sur WhatsApp",
+    aboutHeading: "À propos",
+    aboutBody:
+      "Nisos Rentals est une équipe locale de location à Kos-Ville, proposant voitures, scooters, quads et buggys pour explorer l’île à votre rythme. Nous associons une flotte bien entretenue à des tarifs honnêtes et un accompagnement personnel de la réservation au retour.",
+    locationHeading: "Emplacement",
+    locationBody:
+      "Retrouvez-nous à notre bureau de Kos-Ville, sur Akti Miaouli, avec prise en charge aussi à l’aéroport de Kos et au port des ferries. Nous livrons volontiers à votre hôtel partout sur l’île.",
+  },
 };

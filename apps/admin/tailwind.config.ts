@@ -9,6 +9,9 @@ const config: Config = {
         surf: "#15B4C0",
         "surf-dark": "#0E8A94",
         coral: "#F2785C",
+        sand: "#F6F2EA",       // warm limestone surface (used on the dark sidebar)
+        "sand-2": "#EDE7DA",
+        line: "#E2DCCF",
       },
       fontFamily: {
         display: ["var(--font-display)", "system-ui", "sans-serif"],

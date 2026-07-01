@@ -14,6 +14,7 @@ import { getDictionary } from "@/lib/i18n/server";
 export const dynamic = "force-dynamic";
 
 const HERO = "/2a1f1526-b787-499b-91aa-04e67567e576.png";
+const HERO_MOBILE = "/1876f216-4e1e-46d1-a2a0-9b6bde148f22.png";
 
 // Line icons for the feature grid, in the same order as t.home.features.
 const FEATURE_ICONS: React.ReactNode[] = [
@@ -75,8 +76,12 @@ export default async function HomePage({
     <>
       {/* Hero */}
       <section className="relative">
-        <div className="relative min-h-screen overflow-hidden">
-          <Image src={HERO} alt="" fill priority className="object-cover" />
+        <div className="relative min-h-screen overflow-hidden bg-ink">
+          {/* Portrait photo on phones, wide photo on tablet/desktop. No `priority`
+              so the hidden (display:none) variant isn't preloaded/downloaded.
+              scale from the bottom crops the top (~28%) and zooms it to fill. */}
+          <Image src={HERO_MOBILE} alt="" fill sizes="100vw" className="origin-bottom scale-[1.39] object-cover sm:hidden" />
+          <Image src={HERO} alt="" fill sizes="100vw" className="hidden object-cover sm:block" />
           <div className="absolute inset-0 bg-gradient-to-b from-ink/70 via-ink/35 to-ink/75" />
           <div className="container-x relative flex min-h-screen flex-col justify-between pb-8 pt-28">
             <div className="max-w-2xl text-white">

@@ -26,6 +26,7 @@ export function Footer() {
             <li><Link href="/fleet" className="hover:text-white">{t.footer.ourFleet}</Link></li>
             <li><Link href="/#why" className="hover:text-white">{t.footer.why}</Link></li>
             <li><Link href="/#faq" className="hover:text-white">{t.footer.faq}</Link></li>
+            <li><Link href="/contact" className="hover:text-white">{t.nav.contact}</Link></li>
           </ul>
         </div>
 

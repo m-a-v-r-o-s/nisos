@@ -36,6 +36,7 @@ export const de: Dictionary = {
     fleet: "Flotte",
     why: "Warum Nisos",
     faq: "FAQ",
+    contact: "Kontakt",
   },
   footer: {
     explore: "Entdecken",
@@ -244,4 +245,25 @@ export const de: Dictionary = {
     accept: "Akzeptieren",
   },
   whatsapp: "Auf WhatsApp chatten",
+  contact: {
+    title: "Kontakt",
+    intro:
+      "Fahrzeugvermietung in Kos-Stadt - Reservierungen, Änderungen und lokaler Support von unserem Team.",
+    reachUs: "So erreichst du uns",
+    address: "Adresse",
+    phone: "Telefon",
+    email: "E-Mail",
+    hours: "Öffnungszeiten",
+    talkNow: "Sprich jetzt mit uns",
+    talkBody:
+      "Ruf uns an oder schick eine kurze Nachricht auf WhatsApp - wir antworten meist innerhalb weniger Minuten.",
+    call: "Ruf uns an",
+    whatsappCta: "Nachricht auf WhatsApp",
+    aboutHeading: "Über uns",
+    aboutBody:
+      "Nisos Rentals ist ein lokales Vermietungsteam in Kos-Stadt und bietet Autos, Roller, ATVs und Buggys, damit du die Insel in deinem eigenen Tempo erkunden kannst. Wir verbinden eine gepflegte Flotte mit fairen Preisen und persönlichem Support von der Buchung bis zur Rückgabe.",
+    locationHeading: "Standort",
+    locationBody:
+      "Du findest uns in unserem Büro in Kos-Stadt an der Akti Miaouli, mit Abholung auch am Flughafen Kos und am Fährhafen. Gerne liefern wir überallhin auf der Insel zu deinem Hotel.",
+  },
 };

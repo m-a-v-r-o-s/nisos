@@ -15,7 +15,13 @@ const FLAG: Record<Locale, string> = {
   fr: "fr",
 };
 
-export function LanguageSwitcher({ buttonClassName = "" }: { buttonClassName?: string }) {
+export function LanguageSwitcher({
+  buttonClassName = "",
+  showLabel = false,
+}: {
+  buttonClassName?: string;
+  showLabel?: boolean;
+}) {
   const router = useRouter();
   const { locale } = useI18n();
   const [open, setOpen] = useState(false);
@@ -55,7 +61,7 @@ export function LanguageSwitcher({ buttonClassName = "" }: { buttonClassName?: s
         }`}
       >
         <Flag code={FLAG[locale]} />
-        <span className="hidden sm:inline">{LOCALE_LABELS[locale]}</span>
+        <span className={showLabel ? "" : "hidden sm:inline"}>{LOCALE_LABELS[locale]}</span>
         <svg viewBox="0 0 24 24" className={`h-3.5 w-3.5 transition ${open ? "rotate-180" : ""}`} fill="none" stroke="currentColor" strokeWidth="2">
           <path d="m6 9 6 6 6-6" strokeLinecap="round" strokeLinejoin="round" />
         </svg>
