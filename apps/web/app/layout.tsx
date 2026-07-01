@@ -24,9 +24,21 @@ const body = Inter({
 
 export function generateMetadata(): Metadata {
   const t = getDictionary();
+  // Absolute base so link-preview scrapers can resolve the og:image.
+  const base =
+    process.env.NEXT_PUBLIC_WEB_URL ||
+    (process.env.RAILWAY_PUBLIC_DOMAIN
+      ? `https://${process.env.RAILWAY_PUBLIC_DOMAIN}`
+      : "http://localhost:3000");
+  const title = `${BRAND.name} - ${t.brand.tagline}`;
+  const description = t.home.metaDescription;
+  const images = [{ url: "/og.jpg", width: 1200, height: 630, alt: BRAND.name }];
   return {
-    title: `${BRAND.name} - ${t.brand.tagline}`,
-    description: t.home.metaDescription,
+    metadataBase: new URL(base),
+    title,
+    description,
+    openGraph: { title, description, siteName: BRAND.name, type: "website", url: "/", images },
+    twitter: { card: "summary_large_image", title, description, images: ["/og.jpg"] },
   };
 }
 

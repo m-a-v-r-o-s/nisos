@@ -20,6 +20,8 @@ export function middleware(req: NextRequest) {
 }
 
 export const config = {
-  // protect everything except Next internals and static assets
-  matcher: ["/((?!_next/static|_next/image|favicon.ico).*)"],
+  // Protect everything except Next internals and public static assets. `flags`
+  // (and any /*.svg|png|jpg|ico) must stay reachable so the login page — which is
+  // unauthenticated — can load the language flags instead of getting redirected.
+  matcher: ["/((?!_next/static|_next/image|favicon.ico|flags/|.*\\.(?:svg|png|jpg|jpeg|webp|ico)$).*)"],
 };
