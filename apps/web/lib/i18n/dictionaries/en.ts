@@ -245,9 +245,18 @@ export const en = {
     refunded: "Refunded",
   },
   cookies: {
+    title: "Cookies",
     message:
-      "We use cookies to improve your experience. By using this site you accept our use of cookies.",
-    accept: "Accept",
+      "This site uses necessary cookies to work. With your consent, optional cookies like analytics help us improve it. You’re in control: accept, reject, or manage your preferences.",
+    acceptAll: "Accept all",
+    rejectAll: "Reject all",
+    manage: "Manage preferences",
+    save: "Save preferences",
+    necessary: "Strictly necessary",
+    necessaryDesc: "Required for the site to work, such as security and saving this choice.",
+    alwaysOn: "Always on",
+    analytics: "Analytics",
+    analyticsDesc: "Anonymous statistics that help us understand how the site is used.",
   },
   whatsapp: "Chat on WhatsApp",
   contact: {

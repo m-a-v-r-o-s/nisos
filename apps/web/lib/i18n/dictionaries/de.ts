@@ -240,9 +240,18 @@ export const de: Dictionary = {
     refunded: "Erstattet",
   },
   cookies: {
+    title: "Cookies",
     message:
-      "Wir verwenden Cookies, um dein Erlebnis zu verbessern. Mit der Nutzung dieser Website akzeptierst du die Verwendung von Cookies.",
-    accept: "Akzeptieren",
+      "Diese Website verwendet notwendige Cookies, um zu funktionieren. Mit deiner Einwilligung helfen optionale Cookies wie Analytics, sie zu verbessern. Du hast die Kontrolle: akzeptieren, ablehnen oder Einstellungen verwalten.",
+    acceptAll: "Alle akzeptieren",
+    rejectAll: "Alle ablehnen",
+    manage: "Einstellungen verwalten",
+    save: "Einstellungen speichern",
+    necessary: "Unbedingt erforderlich",
+    necessaryDesc: "Erforderlich für den Betrieb der Website, z. B. Sicherheit und das Speichern dieser Auswahl.",
+    alwaysOn: "Immer aktiv",
+    analytics: "Analytics",
+    analyticsDesc: "Anonyme Statistiken, die uns helfen zu verstehen, wie die Website genutzt wird.",
   },
   whatsapp: "Auf WhatsApp chatten",
   contact: {
