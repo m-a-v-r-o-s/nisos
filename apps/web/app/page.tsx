@@ -13,8 +13,8 @@ import { getDictionary } from "@/lib/i18n/server";
 
 export const dynamic = "force-dynamic";
 
-const HERO = "/2a1f1526-b787-499b-91aa-04e67567e576.png";
-const HERO_MOBILE = "/1876f216-4e1e-46d1-a2a0-9b6bde148f22.png";
+const HERO = "/2a1f1526-b787-499b-91aa-04e67567e576.webp";
+const HERO_MOBILE = "/1876f216-4e1e-46d1-a2a0-9b6bde148f22.webp";
 
 // Line icons for the feature grid, in the same order as t.home.features.
 const FEATURE_ICONS: React.ReactNode[] = [

@@ -56,11 +56,11 @@ const GROUPS: G[] = [
       "Compact, fuel-sipping cars that slip into the tightest Kos Town spots. Ideal for couples and short island hops.",
     pricePerDay: 3000,
     deposit: 30000,
-    hero: "/fleet/fiat-panda.jpg",
+    hero: "/fleet/fiat-panda.webp",
     vehicles: [
-      { name: "Toyota Aygo", seats: 5, doors: 5, transmission: "manual", fuel: "petrol", luggage: 2, image: "/fleet/toyota-aygo.jpg" },
-      { name: "Fiat Panda", seats: 5, doors: 5, transmission: "manual", fuel: "petrol", luggage: 2, image: "/fleet/fiat-panda.jpg" },
-      { name: "Opel Corsa", seats: 5, doors: 5, transmission: "manual", fuel: "petrol", luggage: 2, image: "/fleet/opel-corsa.jpg" },
+      { name: "Toyota Aygo", seats: 5, doors: 5, transmission: "manual", fuel: "petrol", luggage: 2, image: "/fleet/toyota-aygo.webp" },
+      { name: "Fiat Panda", seats: 5, doors: 5, transmission: "manual", fuel: "petrol", luggage: 2, image: "/fleet/fiat-panda.webp" },
+      { name: "Opel Corsa", seats: 5, doors: 5, transmission: "manual", fuel: "petrol", luggage: 2, image: "/fleet/opel-corsa.webp" },
     ],
   },
   {
@@ -72,10 +72,10 @@ const GROUPS: G[] = [
       "Smarter automatic hatchbacks with space for luggage and relaxed driving across the island.",
     pricePerDay: 4500,
     deposit: 40000,
-    hero: "/fleet/citroen-c3.jpg",
+    hero: "/fleet/citroen-c3.webp",
     vehicles: [
-      { name: "Citroen C3", seats: 5, doors: 5, transmission: "automatic", fuel: "petrol", luggage: 2, image: "/fleet/citroen-c3.jpg" },
-      { name: "Fiat 500c", seats: 4, doors: 3, transmission: "automatic", fuel: "petrol", luggage: 2, image: "/fleet/fiat-500c.jpg" },
+      { name: "Citroen C3", seats: 5, doors: 5, transmission: "automatic", fuel: "petrol", luggage: 2, image: "/fleet/citroen-c3.webp" },
+      { name: "Fiat 500c", seats: 4, doors: 3, transmission: "automatic", fuel: "petrol", luggage: 2, image: "/fleet/fiat-500c.webp" },
     ],
   },
   {
@@ -87,11 +87,11 @@ const GROUPS: G[] = [
       "Higher-riding crossovers and SUVs with room for luggage and confidence on the back roads.",
     pricePerDay: 7000,
     deposit: 60000,
-    hero: "/fleet/volkswagen-t-cross.jpg",
+    hero: "/fleet/volkswagen-t-cross.webp",
     vehicles: [
-      { name: "Volkswagen T-cross", seats: 5, doors: 5, transmission: "automatic", fuel: "petrol", luggage: 2, image: "/fleet/volkswagen-t-cross.jpg" },
-      { name: "Fiat 500x", seats: 5, doors: 5, transmission: "automatic", fuel: "petrol", luggage: 2, image: "/fleet/fiat-500x.jpg" },
-      { name: "Jeep Renegade", seats: 4, doors: 5, transmission: "automatic", fuel: "petrol", luggage: 2, image: "/fleet/jeep-renegade.jpg" },
+      { name: "Volkswagen T-cross", seats: 5, doors: 5, transmission: "automatic", fuel: "petrol", luggage: 2, image: "/fleet/volkswagen-t-cross.webp" },
+      { name: "Fiat 500x", seats: 5, doors: 5, transmission: "automatic", fuel: "petrol", luggage: 2, image: "/fleet/fiat-500x.webp" },
+      { name: "Jeep Renegade", seats: 4, doors: 5, transmission: "automatic", fuel: "petrol", luggage: 2, image: "/fleet/jeep-renegade.webp" },
     ],
   },
   {
@@ -103,10 +103,10 @@ const GROUPS: G[] = [
       "Automatic 125cc scooters: the simplest, cheapest way to dart around the island. A1 licence required.",
     pricePerDay: 1800,
     deposit: 15000,
-    hero: "/fleet/piaggio-medley-125cc.jpg",
+    hero: "/fleet/piaggio-medley-125cc.webp",
     vehicles: [
-      { name: "Piaggio Medley 125cc", seats: 2, transmission: "automatic", fuel: "petrol", engineCc: 125, luggage: 2, image: "/fleet/piaggio-medley-125cc.jpg" },
-      { name: "Piaggio Liberty 125cc", seats: 2, transmission: "automatic", fuel: "petrol", engineCc: 125, luggage: 2, image: "/fleet/piaggio-liberty-125cc.jpg" },
+      { name: "Piaggio Medley 125cc", seats: 2, transmission: "automatic", fuel: "petrol", engineCc: 125, luggage: 2, image: "/fleet/piaggio-medley-125cc.webp" },
+      { name: "Piaggio Liberty 125cc", seats: 2, transmission: "automatic", fuel: "petrol", engineCc: 125, luggage: 2, image: "/fleet/piaggio-liberty-125cc.webp" },
     ],
   },
   {
@@ -118,10 +118,10 @@ const GROUPS: G[] = [
       "Sure-footed quads for dirt roads, hidden coves and the kind of beaches the buses never reach.",
     pricePerDay: 4000,
     deposit: 25000,
-    hero: "/fleet/c-force-450.jpg",
+    hero: "/fleet/c-force-450.webp",
     vehicles: [
-      { name: "C-FORCE 450L", seats: 2, transmission: "automatic", fuel: "petrol", engineCc: 400, image: "/fleet/c-force-450l.jpg" },
-      { name: "C-FORCE 450", seats: 2, transmission: "automatic", fuel: "petrol", engineCc: 400, image: "/fleet/c-force-450.jpg" },
+      { name: "C-FORCE 450L", seats: 2, transmission: "automatic", fuel: "petrol", engineCc: 400, image: "/fleet/c-force-450l.webp" },
+      { name: "C-FORCE 450", seats: 2, transmission: "automatic", fuel: "petrol", engineCc: 400, image: "/fleet/c-force-450.webp" },
     ],
   },
   {
@@ -133,9 +133,9 @@ const GROUPS: G[] = [
       "Wind in your hair, dust on your shoes, the whole coastline in front of you.",
     pricePerDay: 7500,
     deposit: 40000,
-    hero: "/fleet/z-force-800.jpg",
+    hero: "/fleet/z-force-800.webp",
     vehicles: [
-      { name: "Z-FORCE 800", seats: 2, transmission: "manual", fuel: "petrol", engineCc: 800, image: "/fleet/z-force-800.jpg" },
+      { name: "Z-FORCE 800", seats: 2, transmission: "manual", fuel: "petrol", engineCc: 800, image: "/fleet/z-force-800.webp" },
     ],
   },
 ];
